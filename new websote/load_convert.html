@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Converters</title>
+        
+        <style>
+            
+            body{
+                overflow: hidden;
+            }
+            #divmain{
+                    display:grid;
+                    grid-template-rows: repeat(5,1f);
+                    grid-template-columns: repeat(3,1f);
+                    background-image: url("209037.gif");
+                    background-size: cover;
+                    background-attachment: fixed;
+                    height: 100vh;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    margin: 0 auto;
+                    
+                }
+            
+            input[type=number], select {
+                    color:aliceblue;
+                    width: 100%;
+                    padding: 15px 20px;
+                    margin: 4px 1px;
+                    display: block;
+                    background-color: #149141;
+                    border: 1px solid #149141;
+                    border-radius: 4px;
+                    box-sizing: border-box;
+                    text-align: start;
+                
+            }
+            input[type=number]:focus{     
+                background-color:#0e6b0e; 
+            }
+            
+            .temperature{
+                    margin: 0px;
+                    padding: 15px;
+                    grid-column: 1/2;
+                    grid-row: 2 auto; 
+                    color:white;
+                    font-family: "Lucida Console", "Courier New", monospace;
+                    font-size: 15px;
+                    font-weight: bold;
+                    background-color:black;
+                    border: 1px solid chartreuse;
+                    border-radius: 4px;
+                        
+            }
+            
+            .distance{
+                    margin: 20px;
+                    padding: 15px;
+                    grid-column: 2/3;
+                    grid-row: 2;
+                    color:white;
+                    font-family: "Lucida Console", "Courier New", monospace;
+                    font-size: 15px;
+                    font-weight: bold;
+                    background-color:black;
+                    border: 1px solid chartreuse;
+                    border-radius: 4px;                
+            }
+            
+            button{
+                    width: 40%;
+                    font-family: "Lucida Console", "Courier New", monospace;
+                    background-color: black;
+                    color: #149141;
+                    padding: 10px 100px;
+                    margin: 8px 5px;
+                    border: 1px solid #149141;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    font-size: 14px;
+                }
+            
+            button:hover{
+                background-color:#0e6b0e; 
+            }
+            
+            .home{
+                text-align: center;
+                grid-row: auto;
+                background: black;
+                display: block;
+                padding: 20px 100px;
+                opacity: 70%;
+                border: 1px solid #149141;
+                border-radius: 4px;
+                box-sizing: border-box;        
+            }
+            
+            .home a{
+                color: #149141;
+                font-size: 20px;
+                font-family: monospace;
+                text-decoration: none;
+                text-shadow: 5px 5px 5px black;
+            }            
+            
+            .home:hover{
+                opacity: 100%;
+                font-weight: bold;
+            }
+            
+            h1{
+                grid-column: 1/3;
+                grid-row: 1;
+                align-content: center;
+                text-align: center;
+                grid-row: auto;
+                background: black;
+                display: block;
+                padding: 10px 10px;
+                border: 1px solid #149141;
+                border-radius: 4px;
+                box-sizing: border-box; 
+                color:white;
+                font-family: "Lucida Console", "Courier New", monospace;
+            }
+        </style>
+        
+    
+    
+    </head>
+
+    <body>
+    <div id="divmain">
+        <h1> Convertion</h1>
+        <div class="temperature"> 
+            <div>
+            <p class="title"> Farenheit/Celsius Converter </p>
+            </div>
+
+            
+            <div class="choosetemp">
+                <p>
+                <label for="temptype">Farenheit or Celsius?</label>
+                    <select id="temptype" name="temptype">
+                        <option value="fahrenheit">Farenheit</option>
+                        <option value="celsius">Celsius</option>
+                    </select>            
+                </p>
+            </div>
+            <div class="inputtemp">
+                <p>
+                    <label for="n1">Temperature Value</label>
+                    <input id="n1" name="n1" type="number">
+                
+                    <button onclick="computetemp()"> Compute temperature</button>
+                    <button onclick="clearvaluestemp()">Clear Values</button>
+                
+                </p>
+            </div>
+            <div class="tempvalue">
+                <p>
+                    <label for="tempresult" id="finaltemp"> The Equivalent Temperature is:</label>
+                    <input id="tempresult" name="tempresult" type="number" readonly>
+                </p>
+            </div>
+        </div>
+        
+        <br><br><br>
+        <div class="distance"> 
+        <p> Meter/Feet Converter </p>
+        
+        <p>
+        
+            <label for="distancetype">Meter or Feet?</label>
+            <select id="distancetype" name="distancetype">
+                <option value="meters">Meters</option>
+                <option value="feet">Feet</option>
+            </select>            
+        
+        </p>
+        <p>
+
+            <label for="n2">Enter Distance Value</label>
+            <input id="n2" name="n2" type="number">
+
+            <button onclick="computedistance()"> Compute distance</button>
+            <button onclick="clearvaluesdistance()">Clear Values</button>
+        </p>
+        
+        <p>
+            <label for="distanceresult" id="finaldistance"> The Equivalent Temperature is:</label>
+            <input id="distanceresult" name="distanceresult" type="number" readonly>
+        </p>
+         
+        </div>
+        <script>
+            
+            function computetemp()
+                {
+                var outputvalue;
+                var inputvalue = document.getElementById("n1").value;
+                    
+                var unit = document.getElementById("temptype").value;
+                    
+                if (unit === "fahrenheit") 
+                    {
+                    outputvalue = (inputvalue - 32)/1.8;
+                    outputvalue = Math.round(outputvalue*100)/100 ;
+                    } 
+                else if (unit === "celsius") 
+                    {
+                    outputvalue = (inputvalue * 1.8) + 32;
+                    outputvalue = Math.round(outputvalue*100)/100 ;
+                    }
+                    
+                document.getElementById("finaltemp").innerHTML='The Equivalent Conversion of ' + inputvalue+ ' is';
+                document.getElementById("tempresult").value=outputvalue;
+                }
+                
+            function clearvaluestemp()
+                {
+                
+                    document.getElementById("n1").value='';
+                    document.getElementById("finaltemp").value='';
+                    document.getElementById("tempresult").value='';
+                    document.getElementById("finaltemp").innerHTML="The Equivalent Temparature is"
+                }
+            
+            function computedistance()
+                {
+                var outputvalue;
+                var inputvalue = document.getElementById("n2").value;
+                    
+                var unit = document.getElementById("distancetype").value;
+                    
+                    if (unit === "meters") {
+                        outputvalue = inputvalue * 3.281;
+                        outputvalue = Math.round(outputvalue*100)/100 ;
+                    } 
+                    else if (unit === "feet") {
+                        outputvalue = inputvalue / 3.281;
+                        outputvalue = Math.round(outputvalue*100)/100 ;
+                    }
+                    
+                document.getElementById("finaldistance").innerHTML='The Equivalent Conversion of ' + inputvalue+ ' is';
+                document.getElementById("distanceresult").value=outputvalue;
+                }
+                
+            function clearvaluesdistance()
+                {
+                
+                    document.getElementById("n2").value='';
+                    document.getElementById("finaldistance").value='';
+                    document.getElementById("distanceresult").value='';
+                    document.getElementById("finaldistance").innerHTML="The Equivalent Distance is"
+                }
+        </script>
+        
+        <div class="home"> <a href="Index.html"> Go back to Home</a></div>
+        
+    </div>
+    </body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+    
+    @font-face {
+        font-family: myfont;
+        src: url(Silkscreen/slkscre.ttf);
+    }
+    
+    body{
+        overflow: hidden;
+    }
+        
+    .background{
+        display:grid;
+        width: 100%;
+        background-image: url('3e4c9d81ba6be013081a1506dd7fcdec.gif');
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+        height: 100vh;
+        margin: 0px auto;
+    }
+
+    .titlemain{
+        text-align: center;
+        align-self: start;
+        justify-self: center;
+        margin: 40px;
+    }
+    
+    .titlebg{
+        font-family: myfont;
+        display: block;
+        background-color: darkslateblue;
+        padding: 20px 50px;
+        border: 2px solid fuchsia;
+        color:white;
+        border-radius: 9px;
+        box-sizing: border-box;
+    }
+    
+    .menu{
+        grid-column: auto;
+        grid-row: 2/3;
+        grid-template-columns: repeat(3,1fr);
+        grid-auto-rows: minmax(50px,auto);
+        display: grid;
+        grid-gap: 50px;
+        }
+    
+    .inputnum{
+        grid-column: 2/3;
+        grid-row: 1/2;
+        
+        }
+    .inputnumbg{
+        font-family: myfont;
+        display: block;
+        background-color: darkslateblue;
+        padding: 50px 50px;
+        border: 2px solid fuchsia;
+        color:white;
+        border-radius: 9px;
+        box-sizing: border-box;  
+    }
+    
+    .factorial_output{
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+    
+    .factorialbg{
+        font-family: myfont;
+        display: block;
+        background-color: darkslateblue;
+        padding: 50px 50px;
+        border: 2px solid fuchsia;
+        color:white;
+        border-radius: 9px;
+        box-sizing: border-box;
+        margin:0px 50px;
+    }
+        
+    .sum_output{
+        grid-column: 2/3;
+        grid-row: 2/3;
+    }
+        
+    .sumbg{
+        font-family: myfont;
+        display: block;
+        background-color: darkslateblue;
+        padding: 50px 50px;
+        border: 2px solid fuchsia;
+        color:white;
+        border-radius: 9px;
+        box-sizing: border-box;
+        margin: 0px 50px;
+    }
+        
+    .average_output{
+        grid-column: 3/4;
+        grid-row: 2/3;
+    }
+    
+    .averagebg{
+        font-family: myfont;
+        display: block;
+        background-color: darkslateblue;
+        padding: 50px 50px;
+        border: 2px solid fuchsia;
+        color:white;
+        border-radius: 9px;
+        box-sizing: border-box;
+        margin:0px 50px;
+    }
+    
+    .home{
+        justify-self: center;
+        align-self: center;
+        text-align: center;
+        grid-row: auto;
+        background: darkslateblue;
+        display: block;
+        padding: 20px 100px;
+        opacity: 70%;
+        border: 1px solid fuchsia;
+        border-radius: 4px;
+        box-sizing: border-box;       
+    }
+            
+    .home a{
+        color: white;
+        font-size: 20px;
+        font-family: myfont;
+        text-decoration: none;
+    }            
+            
+    .home:hover{
+        opacity: 100%;
+        font-weight: bold;
+    }
+        
+    input[type=number]{
+        color:darkslateblue;
+        width: 100%;
+        padding: 15px 20px;
+        margin: 4px 1px;
+        display: block;
+        background-color:white;
+        border: 3px solid fuchsia;
+        border-radius: 4px;
+        box-sizing: border-box;
+        text-align: start;
+                
+    }
+        
+    input[type=number]:focus{     
+        background-color:bisque; 
+    }
+
+    button{
+        width: 40%;
+        font-family: myfont;
+        background-color: darkslateblue;
+        color: white;
+        padding: 10px;
+        margin: 0px 0px;
+        border: 1px solid fuchsia;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        text-align: center;
+    }
+            
+    button:hover{
+        background-color:white;
+        color: darkslateblue;
+    }        
+        
+    </style>
+</head>
+
+    
+<body>
+<div class="divmain">
+    <div class="background">
+        <div class="titlemain">
+            <div class="titlebg">
+                <h1>NTH</h1>
+                <p>Input a number and this page will compute the factorial, sum, and the average of the first N integers</p>
+            </div>
+        </div>
+        <div class='menu'>
+            <div class="inputnum">
+                <div class="inputnumbg">
+                    <label for="num">Input a Number:</label>
+                    <input id="num"  name='num' type='number'>
+                    <button onclick='updateOutput()'>Enter</button>
+                </div>
+            </div>
+            
+            <div class="factorial_output">
+                <div class="factorialbg">
+                    <label for="factorialnum">Factorial</label>
+                    <input id="factorialnum"  name='factorialnum' type='number' readonly>   
+                </div>
+            </div>
+            
+            <div class="sum_output">
+                <div class="sumbg">
+                    <label for="sumnum">Sum</label>
+                    <input id="sumnum"  name='sumnum' type='number' readonly>
+                </div>
+            </div>
+            
+            <div class="average_output">
+                <div class="averagebg">
+                    <label for="averagenum">Average</label>
+                    <input id="averagenum"  name='averagenum' type='number' readonly>
+                </div>
+            </div>
+        </div>
+        
+        <div class="home"> <a href="Index.html"> Go back to Home</a></div>
+    </div>
+</div> 
+
+
+<script>
+   function nFactorial(){
+        x = document.getElementById("num").value;
+        var product = 1
+        
+        for (i = 1; i <= x; i++){
+            product = i * product;
+        }
+        return product;
+    }
+
+    function sum(){
+        x = document.getElementById("num").value;
+        var sum = 0
+        
+        for (i = 1; i <= x; i++){
+            sum = i + sum;
+        }
+        return sum;
+    }
+
+    function average(){
+        x = document.getElementById("num").value;
+        var sum = 0;
+        var average;
+        for (i = 1; i <= x; i++){
+            sum = i + sum;
+        }
+        average = sum/x;
+        return average;
+    }
+
+    function updateOutput(){
+        product = nFactorial();
+        document.getElementById("factorialnum").value = product;
+
+        sum1 = sum();
+        document.getElementById("sumnum").value = sum1;
+
+        average1 = average();
+        document.getElementById("averagenum").value = average1;
+
+    }
+</script>
+</body>
+    
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<style>
+    
+    body{
+        overflow: hidden;
+    }
+    
+    .divmain{
+            display:grid;
+            width: 100%;
+            grid-template-rows: repeat(5,1fr);
+            grid-template-columns: repeat(2,1fr);
+            background-image: url('Pure-CSS-Animated-Background.gif');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            height: 100vh;
+            margin: 0 auto;
+    }
+    
+    .maintitle h1{
+            text-align: center;
+            background: blueviolet;
+            display: block;
+            padding: 40px 500px;
+            border: 1px solid white;
+            border-radius: 4px;
+            box-sizing: border-box; 
+            color:white;
+            font-family: "Lucida Console", "Courier New", monospace;
+        
+    }
+    
+    .maintitle{
+            grid-column: 1/3;
+            grid-row: 1;
+            display: grid;
+            align-self: center;
+            justify-self: center;
+    }
+    
+    .tabletitle{
+        text-align: center;
+        font-family: "Lucida Console", "Courier New", monospace;
+    }
+    
+    .menu{
+        display: grid;
+        grid-column: 1/3;
+        grid-row: 2/5;
+        grid-template-columns: repeat(2,1fr);
+        grid-auto-rows: minmax(200px,auto);
+        align-self: center;
+        justify-items: center;
+        grid-gap: 5px;
+    }
+    
+    .Table{
+        grid-row: 1 auto;
+        grid-column: 1/2;
+        display: grid;
+        align-self: end;
+        justify-self: end;
+    }
+    
+    .tablebg{
+
+        background-color: blueviolet;
+        padding: 20px;
+        border: 1px solid white;
+        border-radius: 4px;
+        box-sizing: border-box; 
+        color:white;
+        align-items: end;
+    }
+    
+    .Table table{
+        font-family: "Lucida Console", "Courier New", monospace;
+        font-weight: bold;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    .Table td,th{
+        border:1px solid #dddddd;
+        text-align: center;
+        padding: 8px;
+    }
+    
+    .Table tr:nth-child(even){
+        background-color: #dddddd;
+        color:blueviolet;
+    }
+    
+    input{
+        color:blueviolet;
+        width: 100%;
+        padding: 10px 20px;
+        margin: 4px 1px;
+        display: block;
+        background-color: white;
+        border: 1px solid white;
+        border-radius: 4px;
+        box-sizing: border-box;
+        text-align: start;
+                
+    }
+    
+    .inputbox{
+        grid-column: 2/3;
+        grid-row: 1 auto;
+        display:grid;
+        align-self: center;
+        justify-self: center;
+    }
+    
+    .inputboxbg{
+        display: block;
+        background-color: blueviolet;
+        padding: 20px 70px;
+        border: 1px solid white;
+        border-radius: 4px;
+        box-sizing: border-box; 
+        color:white;
+    }
+
+    button{
+        width: 40%;
+        font-family: "Lucida Console", "Courier New", monospace;
+        background-color: blueviolet;
+        color: white;
+        padding: 10px;
+        margin: 8px 5px;
+        border: 1px solid white;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        text-align: center;
+    }
+            
+    button:hover{
+        background-color:white;
+        color: blueviolet;
+    }
+    
+    label{
+        font-family: "Lucida Console", "Courier New", monospace;
+        font-weight: bold;
+    }
+    
+    .home{
+        justify-self: center;
+        align-self: center;
+        text-align: center;
+        grid-row: auto;
+        background: blueviolet;
+        display: block;
+        padding: 20px 100px;
+        opacity: 70%;
+        border: 1px solid white;
+        border-radius: 4px;
+        box-sizing: border-box;        
+    }
+            
+    .home a{
+        color: white;
+        font-size: 20px;
+        font-family: "Lucida Console", "Courier New", monospace;
+        text-decoration: none;
+    }            
+            
+    .home:hover{
+        opacity: 100%;
+        font-weight: bold;
+    }
+    
+</style> 
+</head>    
+    
+    
+<body>
+<div class='divmain'>
+
+<div class='maintitle'>
+<h1> INCOME TAX CALCULATOR</h1>
+</div>
+
+<div class='menu'>
+    <div class='Table'>
+        <div class='tablebg'>
+            <div class='tabletitle'>
+            <h2>Income Tax Table</h2>
+                </div>
+                <table>
+                <tr>
+                    <th>Amount of Taxable Income</th>
+                    <th>Basic Tax + Rate</th>
+                </tr>
+                <tr>
+                    <td>&gt;P250,000</td>
+                    <td>0%</td>
+                </tr>
+                <tr>
+                    <td>P250,000 to &gt;P400,000</td>
+                    <td>20% of the excess over P250,000</td>
+                </tr>
+                <tr>
+                    <td>P400,000 to &gt;P800,000</td>
+                    <td>P30,000 + 25% of the excess over P400,000</td>
+                </tr>
+                <tr>
+                    <td>P800,000 to &gt;P2,000,000</td>
+                    <td>P130,000 + 30% of the excess over P800,000</td>
+                </tr>
+                <tr>
+                    <td>P2,000,000 to &gt;P8,000,000</td>
+                    <td>P490,000 + 32% of the excess over P2,000,000</td>
+                </tr>
+                <tr>
+                    <td>&gt;P8,000,000</td>
+                    <td>P2,410,000 + 35% of the excess over P8,000,000</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    
+    <div class="inputbox">
+        <div class='inputboxbg'>
+            <div>
+                <p>
+                <label for='inputnum' id='inputtitle'>INPUT SALARY</label><br>
+                <input id='salary' name='salary' type='number' placeholder="P">
+                
+                <button onclick="updateoutput()">Enter</button> <br><br>
+                    
+                <label for="taxoutput" id='taxfinal'>INCOME TAX</label>
+                <input id="output" name="output" readonly>
+                </p>
+            </div>
+        </div>
+</div>
+
+<div class="home"> <a href="Index.html"> Go back to Home</a></div>
+</div> 
+    
+</div>
+    
+    
+</body>
+    <script>
+        
+        function updateoutput(){
+            var tax = incometaxcalculator()
+            if (tax >= 1000000000){
+                tax = tax/1000000000;
+                document.getElementById("output").value = "P" + " " + parseFloat(tax).toFixed(2) + "B";
+            }
+            else if (tax>=1000000){
+                tax = tax/1000000;
+                document.getElementById("output").value = "P" + " " + parseFloat(tax).toFixed(2) + "M";
+            }
+            else
+                document.getElementById("output").value = "P" + " " + parseFloat(tax).toFixed(2);
+        
+
+        }
+        
+        function incometaxcalculator(){
+            var salary = document.getElementById("salary").value;
+            var tax;
+            if (salary < 250000)
+                tax = 0.00;
+            else if (salary >= 250000 && salary < 400000)
+                tax = (salary - 250000)*0.2
+            else if (salary >= 400000 && salary < 800000)
+                tax = 30000 + (salary - 400000)*0.25
+            else if (salary >= 800000 && salary < 2000000)
+                tax = 130000 + (salary - 800000)*0.3
+            else if (salary >= 2000000 && salary < 8000000)
+                tax = 490000 + (salary - 2000000)*0.32
+            else if (salary >= 8000000)
+                tax = 2410000 + (salary - 8000000)*0.35
+            return Math.round((tax*100)/100)
+        }
+           
+
+    </script>
+
+
+</html>
